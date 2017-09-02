@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OwnCafe|Draculapp</title>
+    <meta name="description" content="description">
+    <meta name="keywords" content="tags">
+    <link rel="icon" href="favicon.ico">
+    <script src="img/jquery.min.js"></script>
+    <script src="img/jquery-ui.min.js"></script>
+    <!--   <script type="text/javascript" src="img/jquery.tools.min.js"></script>-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75134804-1', 'auto');
+  ga('send', 'pageview');
+</script>
+    <script async src='img/analytics.js'></script>
+    <script async src='img/autotrack.js'></script>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+     _paq.push(['setCustomVariable',
+    // Index, the number from 1 to 5 where this custom variable name is stored
+    2,
+    // Name, the name of the variable, for example: Gender, VisitorType
+    "6C3B6B2BDB8C",
+    // Value, for example: "Male", "Female" or "new", "engaged", "customer"
+    "Draculapp",
+    // Scope of the custom variable, "visit" means the custom variable applies to the current visit
+    "visit"
+]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//my.welikewifi.com/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '2']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
+	
+    <script>
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+    </script>
+
+
+    <style type="text/css">
+
+        html {
+            height: 100%;
+        }
+
+        @media screen and (orientation: portrait){
+            body {
+/*                background: url("a2.jpg");
+*/
+
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center center;
+                background-color: #000000;
+            }}
+
+        @media screen and (orientation: landscape) {
+            body {
+/*                background: url("a2h.jpg");
+*/
+
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center center;
+                background-color: #000000;
+            }
+        }
+
+        #buttons {
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            width: 100%;
+            height: 4em;
+            bottom: 4em;
+            text-align: center
+        }
+
+        .side{
+            display: inline-block;
+        }
+        .col{
+            color: #FFFFFF;
+        }
+        #acc{
+            color: #FFFFFF;
+        }
+        #raterm {
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            width: 100%;
+            height: 3em;
+            bottom: 0.5em;
+            text-align: center
+        }
+
+        #terms{
+            background-color: #ADD8E6;
+        }
+
+        .btn {
+            padding: .33em .5em;
+            margin-bottom: .66em;
+            margin-right: 3px;
+            font-weight: normal;
+            font-size: 1.2438223em;
+            color: #fff;
+            border-radius: .2em;
+            width: auto;
+            min-width: 4em;
+            max-width: 10em;
+            text-shadow: 0 1px 0 #0e6fb9;
+            background-color: rgba(18, 148, 246, 0.75);
+            border: 1px solid rgba(18, 148, 246, 0.75);
+            box-shadow: inset 0px 0px 2px 0px #1294f6, inset 0px -2px 0px 0px #0e76c5;
+            background-clip: padding-box;
+            -webkit-transition: all 0.6s ease-in-out;
+            transition: all 0.6s ease-in-out
+        }
+
+        .btn:hover {
+            background-color: #1294f6;
+            border: 1px solid #1294f6
+        }
+
+        .btn:disabled {
+            text-shadow: 0 1px 0 #7d838f;
+            background-color: rgba(167, 174, 190, 0.75);
+            border: 1px solid rgba(167, 174, 190, 0.75);
+            box-shadow: inset 0px 0px 2px 0px #a7aebe, inset 0px -2px 0px 0px #868b98;
+            background-clip: padding-box
+        }
+
+
+        .btn:disabled:hover {
+            background-color: #a7aebe;
+            border: 1px solid #a7aebe
+        }
+
+        .btn {
+            vertical-align: top;
+            text-decoration: none
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #myBtn {
+            background:hsla(358, 6%, 50%, 0.79);
+            color: #FFFFFF;
+        }
+
+        .fon{
+            font-size: 1em;
+        }
+        .connect{
+            color: white;
+            background-color: rgba(223,223,223,0.5);
+            border-style: solid;
+            border: none;
+            border-top: 5px;
+            border-bottom: 5px;
+            font-family: "Helvetica Neue";
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            -webkit-animation: fadeinout 5s linear forwards;
+            animation: fadeinout 5s linear forwards;
+            opacity: 0;
+
+        }
+        @-webkit-keyframes fadeinout {
+            50% { opacity: 1; }
+        }
+
+        @keyframes fadeinout {
+            50% { opacity: 1; }
+        }
+
+        .slider-arrow-left{
+            position: absolute;
+            left: 100px;
+            transition: left 1s,opacity 0.5s;
+            top: 22px;
+            opacity: 1;
+            width: 25px;
+        }
+        .slider-arrow-right{
+            position: absolute;
+            right: 100px;
+            transition: right 1s,opacity 0.5s;
+            top: 22px;
+            opacity: 1;
+            width: 25px;
+        }
+
+        #myBtn {
+            font-size:0.8em;
+            padding:2px 2px;
+            display:inline-block;
+            margin:5px;
+            border-radius:6px;
+            border:solid rgba(0,0,0,0.2);
+            border-width:1px 1px 1px;
+            box-shadow:0 5px 0 rgba(0,0,0,0.1), inset 0 0 3px rgba(255,255,255,0.3);
+            cursor:pointer;
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            user-select:none;
+            -webkit-transition: 0.4s ease;
+            transition:0.4s ease; }
+
+        #myBtn:hover {
+            -webkit-transform:translateY(-3px);
+            transform:translateY(-3px);
+            box-shadow:0 6px 0 rgba(0,0,0,0.1), inset 0 0 1px rgba(255,255,255,0.4);
+            border-bottom-width:2px; }
+
+        #mybtn:active {
+            -webkit-transform:translateY(4px);
+            transform:translateY(4px);
+            box-shadow:0 2px 0 rgba(0,0,0,0.1), inset 0 0 5px rgba(255,255,255,0.4);
+            border-bottom-width:2px;
+            -webkit-transition: 0.1s ease;
+            transition:0.1s ease; }
+
+
+
+    </style>
+
+
+    <link rel="stylesheet" href="img/slider.css">
+
+
+</head><body>
+
+
+<h1 style="display: none;">Final Two Buttons</h1>
+<div id="buttons">
+
+    <h1 class="connect">Logging In...</h1>
+
+    <div style="position: relative" id="silder-page-wrap-2">
+
+        <div id="well-2">
+
+            <h2>
+                <strong id="slider-2"></strong>
+
+                <img id="leftArrow" class="slider-arrow-left"  src="img/leftarrow.png" alt=""/>
+                <img id="rightArrow" class="slider-arrow-right" src="img/rightarrow.png" alt=""/>
+
+
+                <img id="left-img" src="img/slide-icon.png" alt="">
+                <img id="right-img" src="img/slide-2-icon.png" alt="">
+            </h2>
+
+        </div>
+
+    </div>
+    <!--<form class="side" action="http://google.com">-->
+    <!--<input id="button1" class="btn" type="submit" value="Interested">-->
+    <!--</form>-->
+    <!--<form class="side" action="http://google.com">-->
+    <!--<input id="button2" class="btn" type="submit" value="Button2">-->
+    <!--</form>-->
+</div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">x</span>
+        <p>Terms &amp; Conditions text</p>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    var xmlhttp = new XMLHttpRequest(),
+            user_mac = "$(mac-esc)",
+            link_origin = "$(link-orig-esc)",
+            link_login_only = "$(link-login-only)";
+
+    var params = 'username=T-' + user_mac + '&dst=' + link_origin;
+
+    function do_login(el, with_link_origin) {
+        console.log(el.attr('data-ready'));
+
+        if (true == true || el.attr('data-ready') == "true") {
+            $("#well").fadeOut();
+            xmlhttp.open('POST', link_login_only, true);
+            xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=utf-8');
+
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4) {
+                    setTimeout( function() {
+                        if (with_link_origin) {
+                            window.location = link_origin;
+                            //                  window.location = 'https://www.facebook.com/CafeRider/';
+                        } else {
+//                            location = location.replace('login.html','https://www.zomato.com/dubai/al-kamil-restaurant-billiard-jumeirah-lake-towers/photos');
+                            //                           window.location = location;
+                        }
+                    }, 1500);
+                }
+            };
+            xmlhttp.send(params);
+        } }
+
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var botn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+
+    // When the user clicks anywhere outside of the modal, close it
+</script>
+
+
+
+<script>
+
+
+var css_back = getCookie("reconnection");
+var n = css_back.toString();
+if ( n == "" ) { var n = "1" }
+
+
+if (window.matchMedia('all and (orientation:portrait)').matches) {
+        $(document).ready(function () {
+            $('body').css('background-image', 'url(a'+n+'.jpg)');
+
+
+       });
+    }
+    else if (window.matchMedia('all and (orientation:landscape)').matches) {
+        $(document).ready(function () {
+            $('body').css('background-image', 'url(a'+n+'h.jpg)');
+        });
+    }
+	
+
+
+
+ 
+    var sTime = new Date().getTime();
+    var countDown = 5;
+
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var botn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    function leftClick(){
+        console.log('LEFT CLICKED!');
+        do_login($("#slider-2"), false);
+        window.location = "11"+n+".html";
+		
+		
+    }
+
+    function rightClick(){
+        console.log('RIGHT CLICKED!');
+        do_login($("#slider-2"), false);
+		window.location = "22"+n+".html";
+		
+    }
+
+</script>
+
+
+
+
+<script>
+
+
+    var funcs =[moveArrowsToSides,hideArrows,moveArrowsToOrigin,showArrows];
+
+    var i=0;
+    function callFuncs() {
+
+        if(i<4) {
+            funcs[i++]();
+            if (i < funcs.length) {
+                setTimeout(callFuncs, 1000);
+            } else {
+                setTimeout(function () {
+                    i = 0;
+                }, 500);
+            }
+            setTimeout(callFuncs, 1000);
+
+        }
+    }
+    function moveArrowsToSides()
+    {
+        $('.slider-arrow-left').css('left', '10px');
+        $('.slider-arrow-right').css('right', '10px');
+    }
+    function moveArrowsToOrigin()
+    {
+        $('.slider-arrow-left').css('left', '100px');
+        $('.slider-arrow-right').css('right', '100px');
+    }
+    function hideArrows()
+    {
+        $('.slider-arrow-left').css('opacity', '0');
+        $('.slider-arrow-right').css('opacity', '0');
+    }
+    function showArrows()
+    {
+        $('.slider-arrow-left').css('opacity', '1');
+        $('.slider-arrow-right').css('opacity', '1');
+    }
+
+
+    $(document).ready(function() {
+        /* Load after 5 sec */
+
+        setTimeout(function(){
+            $('.connect').remove();
+            $('#silder-page-wrap-2').fadeIn();
+
+            setTimeout(function()
+            {
+                callFuncs();
+            },500);
+
+        }, 5000);
+
+
+        var touchStartX = null;
+
+        $(window).resize(function(){
+            touchStartX = null;
+        })
+
+        $("#slider-2").draggable({
+            axis: 'x',
+            containment: 'parent',
+            drag: function(event, ui) {
+//                console.log("ui.position.left: ",ui.position.left);
+//                if (ui.position.left > 550) {
+//                } else {
+//                }
+            },
+            stop: function(event, ui) {
+                $(this).animate({
+                    left: (100)+'px'
+                });
+                console.log(ui.position.left);
+                if (ui.position.left >= 195) {
+                    rightClick();
+                }
+                if (ui.position.left <= 0) {
+                    leftClick();
+                }
+            }
+        });
+
+        $('#slider-2')[0].addEventListener('touchmove', function(event) {
+            event.preventDefault();
+            var el = event.target;
+            var touch = event.touches[0];
+            var curX = touch.pageX;
+
+            if(!touchStartX) {
+                touchStartX = curX;
+            }
+            else{
+                var diff = curX - touchStartX;
+                var replacement = Number(100 + diff);
+                console.log(replacement);
+                ($("#slider-2").css('left', replacement+'px'));
+            }
+        }, false);
+
+        $('#slider-2')[0].addEventListener('touchend', function(event) {
+            if (($("#slider-2").css('left')).replace('px','') >= 195) {
+                rightClick();
+            }
+            if (($("#slider-2").css('left')).replace('px','') <= 0) {
+                leftClick();
+            }
+            $("#slider-2").animate({
+                left: (100)+'px'
+            });
+        }, false);
+
+    });
+</script>
+
+</body>

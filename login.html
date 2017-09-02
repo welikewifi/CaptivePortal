@@ -1,0 +1,605 @@
+<!--$(if http-header == "Access-Control-Allow-Origin")*$(endif)-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>OwnCafe</title>
+    <link rel="icon" href="favicon.ico">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="img/jquery.min.js"></script>
+    <script src="img/jquery-ui.min.js"></script>
+    <!--set the ga('set', 'page', '/whatever.html') changing whatever to the MAC address of the hotspot (without Colon)-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75134804-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    <script async src='img/analytics.js'></script>
+    <script async src='img/autotrack.js'></script>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['setCustomVariable',
+    // Index, the number from 1 to 5 where this custom variable name is stored
+    1,
+    // Name, the name of the variable, for example: Gender, VisitorType
+    "OUTLET",
+    // Value, for example: "Male", "Female" or "new", "engaged", "customer"
+    "6C3B6B2BDB8C",
+    // Scope of the custom variable, "visit" means the custom variable applies to the current visit
+    "visit"
+]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//my.welikewifi.com/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
+	
+<script>
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    var repetition=getCookie("reconnection");
+    if (repetition == "") {
+        setCookie("reconnection", 1, 365);
+    } else {
+                 if (repetition == "1") {
+                 setCookie("reconnection", 2, 365);
+                        } else {
+                                 if (repetition == "2") {
+                        setCookie("reconnection", 3, 365);
+                                        } else {
+                                                 if (repetition == "3") {
+                                                     setCookie("reconnection", 1, 365); }
+													 
+                        }
+        }
+    }
+}
+
+</script>
+	
+	
+	
+
+    <style type="text/css">
+        html {
+            color: #222;
+            display: table;
+            font-family: sans-serif;
+            height: 100%;
+            width: 100%;
+        }
+
+        @media screen and (orientation: portrait) {
+            body {
+/*                background: url("img/1.jpg");
+*/
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center center;
+                background-color: #000000;
+            }
+        }
+
+        @media screen and (orientation: landscape) {
+            body {
+/*                background: url("img/1h.jpg");
+*/
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center center;
+                background-color: #000000;
+            }
+        }
+
+        #buttons {
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            width: 100%;
+            height: 4em;
+            bottom: 4em;
+            text-align: center
+        }
+
+        .side{
+            display: inline-block;
+        }
+        .col{
+            color: #FFFFFF;
+        }
+        #acc{
+            color: #FFFFFF;
+        }
+        #raterm {
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            width: 100%;
+            height: 3em;
+            bottom: 0.5em;
+            text-align: center
+        }
+
+        #terms{
+            background-color: #ADD8E6;
+        }
+        .connect{
+            color: white;
+            background-color: rgba(223,223,223,0.5);
+            border-style: solid;
+            border: none;
+            border-top: 5px;
+            border-bottom: 5px;
+            font-family: "Verdana";
+            padding-top: 10px;
+            padding-left: 20px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+
+            -webkit-animation: fadeinout 5s linear forwards;
+            animation: fadeinout 5s linear forwards;
+            opacity: 0;
+        }
+        @-webkit-keyframes fadeinout {
+            50% { opacity: 1; }
+        }
+
+        @keyframes fadeinout {
+            50% { opacity: 1; }
+        }
+
+        .btn {
+            -moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
+            -webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
+            box-shadow:inset 0px 1px 0px 0px #fff6af;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
+            background:-moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+            background:-webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+            background:-o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+            background:-ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+            background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
+            background-color:#ffec64;
+            -moz-border-radius:9px;
+            -webkit-border-radius:9px;
+            border-radius:9px;
+            display:inline-block;
+            cursor:pointer;
+            color:#333333;
+            font-family:Arial;
+            font-size:15px;
+            font-weight:bold;
+            padding:8px 15px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #ffee66;
+        }
+        .btn:hover {
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64));
+            background:-moz-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+            background:-webkit-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+            background:-o-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+            background:-ms-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+            background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64',GradientType=0);
+            background-color:#ffab23;
+        }
+        .btn:active {
+            position:relative;
+            top:1px;
+        }
+
+        .btn+.disabled {
+            -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+            -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+            box-shadow:inset 0px 1px 0px 0px #ffffff;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+            background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+            background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+            background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+            background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+            background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+            background-color:#ededed;
+            -moz-border-radius:9px;
+            -webkit-border-radius:9px;
+            border-radius:9px;
+            display:inline-block;
+            cursor:pointer;
+            color:#777777;
+            font-family:Arial;
+            font-size:15px;
+            font-weight:bold;
+            padding:8px 15px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #ffffff;
+        }
+        .btn+.disabled:hover {
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+            background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+            background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+            background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+            background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+            background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+            background-color:#dfdfdf;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #myBtn {
+            background:hsla(358, 6%, 50%, 0.79);
+            color: #FFFFFF;
+        }
+
+        .fon{
+            font-size: 1em;
+        }
+
+        #myBtn {
+            font-size:0.8em;
+            padding:2px 2px;
+            display:inline-block;
+            margin:5px;
+            border-radius:6px;
+            border:solid rgba(0,0,0,0.2);
+            border-width:1px 1px 1px;
+            box-shadow:0 5px 0 rgba(0,0,0,0.1), inset 0 0 3px rgba(255,255,255,0.3);
+            cursor:pointer;
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            user-select:none;
+            -webkit-transition: 0.4s ease;
+            transition:0.4s ease; }
+
+        #myBtn:hover {
+            -webkit-transform:translateY(-3px);
+            transform:translateY(-3px);
+            box-shadow:0 6px 0 rgba(0,0,0,0.1), inset 0 0 1px rgba(255,255,255,0.4);
+            border-bottom-width:2px; }
+
+        #mybtn:active {
+            -webkit-transform:translateY(4px);
+            transform:translateY(4px);
+            box-shadow:0 2px 0 rgba(0,0,0,0.1), inset 0 0 5px rgba(255,255,255,0.4);
+            border-bottom-width:2px;
+            -webkit-transition: 0.1s ease;
+            transition:0.1s ease; }
+    </style>
+    <link rel="stylesheet" href="img/slider.css">
+</head>
+<body  onload="checkCookie()">
+<script type="text/javascript">
+// document.write(getCookie("reconnection"));
+var css_back = getCookie("reconnection");
+var n = css_back.toString();
+if ( n == "" ) { var n = "1" }
+
+
+if (window.matchMedia('all and (orientation:portrait)').matches) {
+        $(document).ready(function () {
+            $('body').css('background-image', 'url('+n+'.jpg)');
+
+
+        });
+    }
+    else if (window.matchMedia('all and (orientation:landscape)').matches) {
+        $(document).ready(function () {
+            $('body').css('background-image', 'url('+n+'h.jpg)');
+        });
+    }
+
+</script>
+
+
+
+
+
+<form name="sendin" action="$(link-login-only)" method="post">
+    <input type="hidden" name="username" />
+    <input type="hidden" name="password" />
+    <input type="hidden" name="dst" value="$(link-orig)" />
+    <input type="hidden" name="popup" value="true" />
+</form>
+
+<script type="text/javascript" src="/md5.js"></script>
+
+
+<h1 style="display: none;">Login</h1>
+<div id="buttons">
+    <h1 class="connect">Connecting...</h1>
+
+    <div class="side">
+        <!--<a id="button1" class="btn" data-ready=true onclick="do_login(this, false)">Button1</a>-->
+
+
+        <div id="silder-page-wrap">
+
+            <div id="well">
+
+                <h2><strong id="slider" data-ready=true></strong> <span>slide to connect</span></h2>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="buttons1">
+    <div id="raterm">
+        <input class="side col" type="checkbox" checked="checked">
+        <p id="acc" class="side col fon">I accept</p>
+        <button id="myBtn" class="side">Terms &amp; Conditions</button>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">x</span>
+        <h1>Terms of Service</h1>
+        <h2>1. Your Acceptance</h2>
+        <p>This is an agreement between We Like WiFi FZE, a UAE corporation (“We Like WiFi"), the Local operator of www.welikewifi.com (the “We Like WiFi Site”), the We Like WiFi software, and you (“you” or “You”), a user of the Service. BY USING THE SERVICE, YOU ACKNOWLEDGE AND AGREE TO THESE TERMS OF SERVICE, AND WE LIKE WIFI'S PRIVACY POLICY, WHICH CAN BE FOUND AT http://www.WeLikeWiFi.com/legal/#Privacy, AND WHICH ARE INCORPORATED HEREIN BY REFERENCE. If you choose to not agree with any of these terms, you may not use the Service. </p>
+        <h2>2. We Like WiFi Service</h2>
+        <p>These Terms of Service apply to all users of the We Like WiFi Service. Information provided by our users through the We Like WiFi Service may contain links to third party websites that are not owned or controlled by We Like WiFi. We Like WiFi has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party websites. In addition, We Like WiFi will not and cannot censor or edit the content of any third-party site. By using the Service, you expressly acknowledge and agree that We Like WiFi shall not be responsible for any damages, claims or other liability arising from or related to your use of any third-party website. </p>
+        <h2>3. We Like WiFi Access</h2>
+        <p>A. Subject to your compliance with these Terms of Service, We Like WiFi hereby grants you permission to use the Service, provided that: (i) your use of the Service as permitted is solely for your personal use, and you are not permitted to resell or charge others for use of or access to the Service, or in any other manner inconsistent with these Terms of Service; (ii) you will not duplicate, transfer, give access to, copy or distribute any part of the Service in any medium without We Like WiFi's prior written authorization; (iii) you will not attempt to reverse engineer, alter or modify any part of the Service; and (iv) you will otherwise comply with the terms and conditions of these Terms of Service and Privacy Policy. </p>
+        <p>B. In order to access and use the features of the Service, you acknowledge and agree that you may have to provide We Like WiFi with your mobile phone number. We do not collect names, addresses or email addresses, just mobile phone numbers in accordance with pertaining UAE Laws. You must notify We Like WiFi immediately of any breach of security or unauthorized use of your mobile phone. Although We Like WiFi will not be liable for your losses caused by any unauthorized use of your account, you may be liable for the losses of We Like WiFi or others due to such unauthorized use. </p>
+        You agree that you may have to provide Social Media information to access the service. On these occasions you are subject to the respective Social Media’s Terms and Conditions, as well as Data Privacy policies. </p>
+        <p>C. You agree not to use or launch any automated system, including without limitation, "robots," "spiders," "offline readers," etc. or "load testers" such as wget, apache bench, mswebstress, httpload, blitz, Xcode Automator, Android Monkey, etc., that accesses the Service in a manner that sends more request messages to the We Like WiFi servers in a given period of time than a human can reasonably produce in the same period by using a We Like WiFi application, and you are forbidden from ripping the content unless specifically allowed. We have to disallow using request modification tools such as fiddler or whisker, or the like or any other such tools activities that are meant to explore or harm, penetrate or test the site. You must secure our permission before you measure, test, health check or otherwise monitor any network equipment, servers or assets hosted on our domain. You agree not to collect or harvest any personally identifiable information, including phone number, from the Service, nor to use the communication systems provided by the Service for any commercial solicitation or spam purposes. </p>
+        <h2>4. Intellectual Property Rights</h2>
+        <p>The design of the We Like WiFi Service along with We Like WiFi created text, scripts, graphics, interactive features and the like, and the trademarks, service marks and logos contained therein ("Marks"), are owned by or licensed to We Like WiFi, subject to copyright and other intellectual property rights under United Arab Emirates and foreign laws and international conventions. The Service is provided to you AS IS for your information and personal use only. We Like WiFi reserves all rights not expressly granted in and to the Service. You agree to not engage in the use, copying, or distribution of any of the Service other than expressly permitted herein, including any use, copying, or distribution of third parties obtained through the Service for any commercial purposes. </p>
+        <h2>5. Warranty Disclaimer</h2>
+        <p>YOU AGREE THAT YOUR USE OF THE WE LIKE WIFI SERVICE SHALL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE LIKE WIFI, ITS OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICE AND YOUR USE THEREOF. WE LIKE WIFI MAKES NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THIS SERVICE'S CONTENT AND ASSUMES NO LIABILITY OR RESPONSIBILITY FOR ANY (I) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT, (II) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF OUR SERVICE, (III) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (IV) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM OUR SERVICE, (IV) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH OUR SERVICE THROUGH THE ACTIONS OF ANY THIRD PARTY, AND/OR (V) ANY ERRORS OR OMISSIONSIN ANY CONTENT OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, EMAILED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE WE LIKE WIFI SERVICE. WE LIKE WIFI DOES NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE WE LIKE WIFI SERVICE OR ANY HYPERLINKED WEBSITE OR OTHER ADVERTISING, AND WE LIKE WIFI WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE. </p>
+        <h2>7. Limitation of Liability</h2>
+        <p>IN NO EVENT SHALL WE LIKE WIFI, ITS OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS, BE LIABLE TO YOU FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, PUNITIVE, OR CONSEQUENTIAL DAMAGES WHATSOEVER RESULTING FROM ANY (I) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT, (II) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF OUR SERVICE, (III) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (IV) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM OUR SERVERS, (IV) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE, WHICH MAY BE TRANSMITTED TO OR THROUGH OUR SERVICE BY ANY THIRD PARTY, (V) ANY ERRORS OR OMISSIONS IN ANY CONTENT OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF YOUR USE OF ANY CONTENT POSTED, EMAILED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE WE LIKE WIFI CLIENT, WHETHER BASED ON WARRANTY, CONTRACT, TORT, OR ANY OTHER LEGAL THEORY, AND WHETHER OR NOT THE COMPANY IS ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, AND/OR (VI) THE DISCLOSURE OF INFORMATION PURSUANT TO THESE TERMS OF SERVICE OR PRIVACY POLICY. THE FOREGOING LIMITATION OF LIABILITY SHALL APPLY TO THE FULLEST EXTENT PERMITTED BY LAW IN THE APPLICABLE JURISDICTION. </p>
+        <p>The Service is controlled and offered by We Like WiFi from its facilities in the United Arab Emirates. We Like WiFi makes no representations that the We Like WiFi Service is appropriate or available for use in other locations. Those who access or use the We Like WiFi Service from other jurisdictions do so at their own volition and are responsible for compliance with local law. </p>
+        <h2>7. Indemnity</h2>
+        <p>You agree to defend, indemnify and hold harmless We Like WiFi, its parent corporation, officers, directors, employees and agents, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees) arising from: (i) your use of and access to the We Like WiFi Service; (ii) your violation of any term of these Terms of Service; (iii) your violation of any third party right, including without limitation any copyright, property, or privacy right; or (iv) any claim that one of your Status Submissions caused damage to a third party. This defense and indemnification obligation will survive these Terms of Service and your use of the We Like WiFi Service. </p>
+        <h2>8. Ability to Accept Terms of Service</h2>
+        <p>You affirm that you are either more than 16 years of age, or an emancipated minor, or possess legal parental or guardian consent, and are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations, and warranties set forth in these Terms of Service, and to abide by and comply with these Terms of Service. In any case, you affirm that you are at least 16 years old as the We Like WiFi Service is not intended for children under 16. If you are under 16 years of age, you are not permitted to use the We Like WiFi Service. </p>
+        <h2>9. Assignment</h2>
+        <p>These Terms of Service, and any rights and licenses granted hereunder, may not be transferred or assigned by you, but may be assigned by We Like WiFi without restriction. </p>
+        <h2>10. General</h2>
+        <p>You agree that: (i) the We Like WiFi Service shall be deemed solely based in UAE; (ii) the We Like WiFi Service shall be deemed a passive server that does not give rise to personal jurisdiction over We Like WiFi, either specific or general, in jurisdictions other than Singapore; and (iii) that you agree to subject to the jurisdiction of Singapore in the event of any legal dispute. These Terms of Service shall be governed by the internal substantive laws of the State of Singapore, without respect to its conflict of laws principles. Any claim or dispute between you and We Like WiFi that arises in whole or in part from the We Like WiFi Service shall be decided exclusively by a court of competent jurisdiction located in Santa Clara County, Singapore. These Terms of Service, together with any other legal notices published by We Like WiFi, including, but not limited to an end user license agreement, shall constitute the entire agreement between you and We Like WiFi concerning the We Like WiFi Service. If any provision of these Terms of Service is deemed invalid by a court of competent jurisdiction, the invalidity of such provision shall not affect the validity of the remaining provisions of these Terms of Service, which shall remain in full force and effect. No waiver of any term of this these Terms of Service shall be deemed a further or continuing waiver of such term or any other term, and We Like WiFi's failure to assert any right or provision under these Terms of Service shall not constitute a waiver of such right or provision. We Like WiFi reserves the right to amend or modify these Terms of Service at any time, and it is your responsibility to review these Terms of Service for any changes. If you do not agree to the revised Terms, your only recourse is to discontinue the use of the We Like WiFi Service. Your continued use of the We Like WiFi Service following any amendment of these Terms of Service will signify your assent to and acceptance of its revised terms. YOU AND WE LIKE WIFI AGREE THAT ANY CAUSE OF ACTION ARISING OUT OF OR RELATED TO THE WE LIKE WIFI SERVICE MUST COMMENCE WITHIN ONE (1) YEAR AFTER THE CAUSE OF ACTION ACCRUES. OTHERWISE, SUCH CAUSE OF ACTION IS PERMANENTLY BARRED. </p>
+
+
+        <h1>Privacy Notice</h1>
+        <p>We Like WiFi FZE, ("We Like WiFi") recognizes that its customers, visitors and users, need to understand the privacy policy of the services. We Like WiFi provides this Privacy Policy to help you make an informed decision about whether to use or continue using the We Like WiFi Site, We Like WiFi Software and/or the We Like WiFi Service. If you do not agree to our practices, please do not use the We Like WiFi Site, We Like WiFi Software, or We Like WiFi Service. </p>
+        <p>This Privacy Policy is incorporated into and is subject to the We Like WiFi Terms of Service. Your use of the We Like WiFi Site, We Like WiFi Software and the We Like WiFi Service and any personal information you provide on the We Like WiFi Site or We Like WiFi Service remains subject to the terms of this Privacy Policy and our Terms of Service. </p>
+        <h2>What Does This Privacy Policy Cover? </h2>
+        <p>This Privacy Policy is part of We Like WiFi’s Terms of Service and covers the treatment of user information, including personally identifying information, obtained by We Like WiFi, including information obtained when you access the We Like WiFi’s Site, use the We Like WiFi Service or any other software provided by We Like WiFi. </p>
+        <p>This Privacy Policy does not apply to the practices of companies that We Like WiFi does not own or control, or to individuals whom We Like WiFi does not employ or manage, including any of the third parties to which We Like WiFi may disclose user information as set forth in this Privacy Policy. </p>
+        <h2>The Information We Like WiFi Collects</h2>
+        <p>We Like WiFi may obtain the following types of information from or concerning you or your mobile phone device, which may include information that can be used to identify you as specified below (“Personally Identifying Information”): </p>
+        <p>- MAC Address of Device</p>
+        <h2>User Provided Information: </h2> <p>You provide certain Personally Identifiable Information, such as your mobile phone number, billing information (if applicable) and mobile device information to We Like WiFi when choosing to participate in various uses of the We Like WiFi Service, such as registering as a user, connect to a public Wi-Fi or login through Social Media. </p>
+
+        <h2>Cookies Information: </h2> <p>When you visit the We Like WiFi Site, we may send one or more cookies - a small text file containing a string of alphanumeric characters - to your computer that uniquely identifies your browser. We Like WiFi uses both session cookies and persistent cookies. A persistent cookie remains after you close your browser. Persistent cookies may be used by your browser on subsequent visits to the site. Persistent cookies can be removed by following your web browser help file directions. A session cookie is temporary and disappears after you close your browser. You can reset your web browser to refuse all cookies or to indicate when a cookie is being sent. However, the We Like WiFi Site may not function properly if the ability to accept cookies is disabled. </p>
+
+        <h2>Log File Information: </h2> <p>When you use the We Like WiFi Site, our servers automatically record certain information that your web browser sends whenever you visit any website. These server logs may include information such as your web request, Internet Protocol ("IP") address, browser type, browser language, referring / exit pages and URLs, platform type, number of clicks, domain names, landing pages, pages viewed and the order of those pages, the amount of time spent on particular pages, the date and time of your request, one or more cookies that may uniquely identify your browser, your phone number, phone number you are requesting the status of and various status information. When you use the We Like WiFi Service, our servers log certain general information that our application compiles. </p>
+
+        <h2>The Information We Like WiFi Does Not Collect</h2>
+        <p>We Like WiFi does not collect names, emails, addresses or other contact information from its users’ mobile address book or contact lists. We do not collect location data, but WiFi Hotspots may voluntarily share their location with We Like WiFi via the We Like WiFi Service. </p>
+        <h2>The Way We Like WiFi Uses Information</h2>
+        <p>If you submit Personally Identifiable Information to us through the We Like WiFi Site, or We Like WiFi Service, then we use your personal information to operate, maintain, and provide to you the features and functionality of the We Like WiFi Site and We Like WiFi Service. Any Personally Identifiable Information or status content that you voluntarily disclose on the We Like WiFi Service becomes publicly available and may be collected and used by We Like WiFi for statistical purposes. We do not use your mobile phone number or other Personally Identifiable Information to send commercial or marketing messages without your consent or except as part of a specific program or feature for which you will have the ability to opt-in or opt-out. We may, however, use your mobile phone number (or email address, if provided) without further consent for non-marketing or administrative purposes (such as notifying you of major We Like WiFi Site or We Like WiFi Service changes or for customer service purposes). We may use both your Personally Identifiable Information and certain non-personally-identifiable information (such as anonymous user usage data, cookies, IP addresses, browser type, clickstream data, etc.) to improve the quality and design of the We Like WiFi Site and We Like WiFi Service and to create new features, promotions, functionality, and services by storing, tracking, and analyzing user preferences and trends. </p>
+        <h2>When We Like WiFi Discloses Information</h2>
+        <p>We do not sell or share your Personally Identifiable Information (such as mobile phone number) with other third-party companies for their commercial or marketing use without your consent or except as part of a specific program or feature for which you will have the ability to opt-in or opt-out. We may share your Personally Identifiable Information with third party service providers to the extent that it is reasonably necessary to perform, improve or maintain the We Like WiFi Service. We may share non-personally-identifiable information (such as anonymous User usage data, referring / exit pages and URLs, platform types, asset views, number of clicks, etc.) with interested third-parties to assist them in understanding the usage patterns for certain content, services, advertisements, promotions, and/or functionality on the We Like WiFi Site. We may collect and release Personally Identifiable Information and/or non-personally-identifiable information if required to do so by law, or in the good-faith belief that such action is necessary to comply with local and federal laws (such as UAE Copyright Law), international law or respond to a court order, subpoena, or search warrant or equivalent, or where in our reasonable belief, an individual’s physical safety may be at risk or threatened. We Like WiFi also reserves the right to disclose Personally Identifiable Information and/or non-personally-identifiable information that We Like WiFi believes, in good faith, is appropriate or necessary to enforce our Terms of Service, take precautions against liability, to investigate and defend itself against any third-party claims or allegations, to assist government enforcement agencies, to protect the security or integrity of the We Like WiFi Site or our servers, and to protect the rights, property, or personal safety of We Like WiFi, our users or others. </p>
+        <h2>Your Choices</h2>
+        <p>You may, of course, decline to submit Personally Identifiable Information through the We Like WiFi Site or the We Like WiFi Service, in which case We Like WiFi may not be able to provide certain services to you. Your continued usage of the We Like WiFi Service will signify your assent to and acceptance of our Privacy Policy and Terms of Service. To protect your privacy and security, we take reasonable steps (such as SMS authentication in certain cases) to verify your identity before registering your mobile phone number and granting you access to the We Like WiFi Service. Please contact We Like WiFi via email to support at We Like WiFi.com or available web forms with any questions or comments about this Privacy Policy, your personal information, your consent, or your opt-in or opt-out choices. </p>
+        <h2>Our Commitment To Data Security</h2>
+        <p>We Like WiFi uses commercially reasonable physical, managerial, and technical safeguards to preserve the integrity and security of your personal information. We cannot, however, ensure or warrant the security of any information you transmit to We Like WiFi and you do so at your own risk. Once we receive your transmission of information, We Like WiFi makes commercially reasonable efforts to ensure the security of our systems. However, please note that this is not a guarantee that such information may not be accessed, disclosed, altered, or destroyed by breach of any of our physical, technical, or managerial safeguards. If We Like WiFi learns of a security systems breach, then we may attempt to notify you electronically so that you can take appropriate protective steps. We Like WiFi may post a notice on the We Like WiFi Site or through the We Like WiFi Service if a security breach occurs. </p>
+        <h2>Our Commitment To Childrens' Privacy</h2>
+        <p>Protecting the privacy of young children is especially important. For that reason, We Like WiFi does not knowingly collect or maintain Personally Identifiable Information or non-personally-identifiable information on the We Like WiFi Site or We Like WiFi Service from persons under 16 years of age, and no part of the We Like WiFi Service is directed to or intended to be used by persons under 16. If you are under 16 years of age, then please do not use the We Like WiFi Service or access the We Like WiFi Site at any time or in any manner. If We Like WiFi learns that Personally Identifiable Information of persons under 16 years of age has been collected on the We Like WiFi Site or We Like WiFi Service, then We Like WiFi may deactivate the account and/or make the status submissions inaccessible. And always, think of the children! </p>
+        <h2>Special Note to International Users</h2>
+        <p>The We Like WiFi Site and Service are hosted in the United Arab Emirates and are intended for and directed to users in the United Arab Emirates. If you are a user accessing the We Like WiFi Site and Service from the European Union, Asia, or any other region with laws or regulations governing personal data collection, use, and disclosure, that differ from United Arab Emirates laws, please be advised that through your continued use of the We Like WiFi Site and Service, which are governed by UAE law, this Privacy Policy, and our Terms of Service, you are transferring your personal information to the United States and you expressly consent to that transfer and consent to be governed by Singapore law for these purposes. </p>
+        <h2>In the Event of Merger, Sale, or Bankruptcy</h2>
+        <p>In the event that We Like WiFi is acquired by or merged with a third party entity, we reserve the right to transfer or assign the information we have collected from our users as part of such merger, acquisition, sale, or other change of control. In the unlikely event of our bankruptcy, insolvency, reorganization, receivership, or assignment for the benefit of creditors, or the application of laws or equitable principles affecting creditors' rights generally, we may not be able to control how your personal information is treated, transferred, or used. </p>
+        <h2>Changes and updates to this Privacy Notice</h2>
+        <p>This Privacy Policy may be revised periodically and this will be reflected by the "effective date" below. Please revisit this page to stay aware of any changes. Your continued use of the We Like WiFi Site and We Like WiFi Service constitutes your agreement to this Privacy Policy and any amendments. </p>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    var xmlhttp = new XMLHttpRequest(),
+            user_mac = "$(mac-esc)",
+            link_origin = "$(link-orig-esc)",
+            link_login_only = "$(link-login-only)";
+
+    var params = 'username=T-' + user_mac + '&dst=' + link_origin;
+    function goto_html2() {
+	window.location = 'html2.html';
+	}
+	
+	
+    function do_login(el, with_link_origin) {
+        console.log(el.attr('data-ready'));
+        if (el.attr('data-ready') == true || el.attr('data-ready') == "true") {
+            $("#well").fadeOut();
+
+            xmlhttp.open('POST', link_login_only, true);
+            xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=utf-8');
+
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4) {
+                    setTimeout( function() {
+                        if (with_link_origin) {
+                            window.location = link_origin;
+                        } else {
+
+                         window.location = 'html2.html';
+ //                         window.location = 'https://www.facebook.com/CafeRider/';
+                           // var location = window.location.href;
+//                            location = location.replace('login.html','https://www.zomato.com/dubai/al-kamil-restaurant-billiard-jumeirah-lake-towers/photos');
+ //                           window.location = location;
+                        }
+                    }, 1500);
+                }
+            };
+            xmlhttp.send(params);
+        }
+    }
+
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var botn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    botn.onclick = function() {
+        modal.style.display = "block";
+    };
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+</script>
+
+
+
+<script>
+    $(document).ready(function() {
+
+        /* Load after 5 sec */
+        setTimeout(function(){
+            $('.connect').remove();
+            $('#silder-page-wrap').fadeIn();
+
+        }, 5000);
+
+        $("#slider").draggable({
+            axis: 'x',
+            containment: 'parent',
+            drag: function(event, ui) {
+//                console.log("ui.position.left: ",ui.position.left);
+//                if (ui.position.left > 550) {
+//                } else {
+//                }
+            },
+            stop: function(event, ui) {
+                if (ui.position.left < 551) {
+                    $(this).animate({
+                        left: 0
+                    })
+                }
+                if (ui.position.left >= 200) {
+                    console.log("execute click");
+                    goto_html2();
+//                    do_login($("#slider"), false);
+                }
+            }
+        });
+
+        $('#slider')[0].addEventListener('touchmove', function(event) {
+            event.preventDefault();
+            var el = event.target;
+            var touch = event.touches[0];
+            curX = touch.pageX - this.offsetLeft - 73;
+            if(curX <= 0) return;
+//            if(curX > 550){
+//                $('#well').fadeOut();
+//            }
+            el.style.webkitTransform = 'translateX(' + curX + 'px)';
+        }, false);
+
+        $('#slider')[0].addEventListener('touchend', function(event) {
+            var touch = event.changedTouches[0];
+//            console.log(touch.pageX);
+            curX = touch.pageX - this.offsetLeft - 73;
+            this.style.webkitTransition = '-webkit-transform 0.3s ease-in';
+            this.addEventListener( 'webkitTransitionEnd', function( event ) { this.style.webkitTransition = 'none'; }, false );
+            this.style.webkitTransform = 'translateX(0px)';
+            if (curX >= 200) {
+                console.log("execute click");
+                goto_html2();
+//                do_login($("#slider"), false);
+            }
+        }, false);
+
+    });
+</script>
+</body>
