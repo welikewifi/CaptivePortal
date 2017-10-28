@@ -209,7 +209,8 @@ html {
     -webkit-transform:translateY(-3px);
     transform:translateY(-3px);
     box-shadow:0 6px 0 rgba(0,0,0,0.1), inset 0 0 1px rgba(255,255,255,0.4);
-    border-bottom-width:2px; }
+    border-bottom-width:2px; 
+}
 
 #mybtn:active {
     -webkit-transform:translateY(4px);
@@ -217,5 +218,6 @@ html {
     box-shadow:0 2px 0 rgba(0,0,0,0.1), inset 0 0 5px rgba(255,255,255,0.4);
     border-bottom-width:2px;
     -webkit-transition: 0.1s ease;
-    transition:0.1s ease; }
+    transition:0.1s ease;
+ }
 

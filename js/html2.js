@@ -21,8 +21,6 @@ var xmlhttp = new XMLHttpRequest(),
 var params = 'username=T-' + user_mac + '&dst=' + link_origin;
 
 function do_login(el, with_link_origin) {
-    console.log(el.attr('data-ready'));
-
     if (true == true || el.attr('data-ready') == "true") {
         $("#well").fadeOut();
         xmlhttp.open('POST', link_login_only, true);
@@ -100,18 +98,13 @@ window.onclick = function(event) {
 };
 
 function leftClick(){
-    console.log('LEFT CLICKED!');
     do_login($("#slider-2"), false);
     window.location = "left-side.html";
-
-
 }
 
 function rightClick(){
-    console.log('RIGHT CLICKED!');
     do_login($("#slider-2"), false);
     window.location = "right-side.html";
-
 }
 
 var funcs =[moveArrowsToSides,hideArrows,moveArrowsToOrigin,showArrows];
@@ -179,10 +172,6 @@ $(document).ready(function() {
         axis: 'x',
         containment: 'parent',
         drag: function(event, ui) {
-//                console.log("ui.position.left: ",ui.position.left);
-//                if (ui.position.left > 550) {
-//                } else {
-//                }
         },
         stop: function(event, ui) {
             $(this).animate({
@@ -196,35 +185,9 @@ $(document).ready(function() {
                 leftClick();
             }
         }
-    });
-
-    $('#slider-2')[0].addEventListener('touchmove', function(event) {
-        console.log("tm");
-        event.preventDefault();
-        var el = event.target;
-        var touch = event.touches[0];
-        var curX = touch.pageX;
-
-        console.log(event);
-
-        if(!touchStartX) {
-            touchStartX = curX;
-        }
-        else{
-            var diff = curX - touchStartX;
-            var replacement = Number(100 + diff);
-            ($("#slider-2").css('left', replacement+'px'));
-            if (($("#slider-2").css('left')).replace('px','') >= 200) {
-                ($("#slider-2").css('left', 200+'px'));
-            }
-            if (($("#slider-2").css('left')).replace('px','') <= -2) {
-                ($("#slider-2").css('left', 0+'px'));
-            }
-        }
-    }, false);
+    });   
 
     $('#slider-2')[0].addEventListener('touchend', function(event) {
-        console.log("te");
         if (($("#slider-2").css('left')).replace('px','') >= 195) {
             rightClick();
         }
