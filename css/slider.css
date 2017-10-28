@@ -1,0 +1,161 @@
+/* SLIDER 1 */
+
+#silder-page-wrap {
+    width: 276px;
+    /* margin: 0 auto; */
+    /*padding-top: 60px;*/
+    /*margin-left: 20px;*/
+    display: none;
+}
+
+#buttons1{
+    display: none;
+}
+
+#silder-page-wrap #well {
+    /* padding: 0px 15px 0px 15px; */
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    /* background: -webkit-gradient(linear,left top,left bottom,color-stop(0, #010101),color-stop(1, #181818)); */
+    background-color: rgba(255,255,255,0.6);
+    /* border: 2px solid rgba(255,255,255,0.6); */
+    overflow: hidden;
+    -webkit-user-select: none;
+    border-radius: 100px;
+    height: 74px;
+}
+
+#silder-page-wrap h2 {
+    background: -moz-linear-gradient(left, #4d4d4d, 0.4, #4d4d4d, 0.5, white, 0.6, #4d4d4d, #4d4d4d);
+    background: -webkit-gradient(linear,left top,right top,color-stop(0, #4d4d4d),color-stop(0.4, #4d4d4d),color-stop(0.5, white),color-stop(0.6, #4d4d4d),color-stop(1, #4d4d4d));
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: slidetounlock 5s infinite;
+    font-size: 20px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    padding: 0;
+    width: 200%;
+    -webkit-text-size-adjust: none;
+    margin: 0;
+    text-align: left;
+}
+#silder-page-wrap #slider {
+    background: url(../img/slide-icon.png) no-repeat;
+    /* background-size: cover; */
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    border-radius: 100%;
+    background-color: white;
+    margin: 4px 6px;
+    background-position: center;
+    background-size: 62px;
+    cursor: pointer;
+}
+#silder-page-wrap span{
+    margin-left: 15px;
+}
+@-webkit-keyframes slidetounlock {
+    0% {
+        background-position: -720px 0;
+    }
+    100%{
+        background-position: 720px 0;
+    }
+}
+
+
+/* SLIDER 2 */
+
+#silder-page-wrap-2 {
+    width: 276px;
+     margin: 0 auto;
+    /*padding-top: 60px;*/
+    /*margin-left: 20px;*/
+    display: none;
+}
+
+#silder-page-wrap-2 #well-2 {
+    /* padding: 0px 15px 0px 15px; */
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    /* background: -webkit-gradient(linear,left top,left bottom,color-stop(0, #010101),color-stop(1, #181818)); */
+    background-color: rgba(255,255,255,0.6);
+    /* border: 2px solid rgba(255,255,255,0.6); */
+    overflow: hidden;
+    -webkit-user-select: none;
+    border-radius: 100px;
+    height: 74px;
+}
+
+#silder-page-wrap-2 h2 {
+    background: -moz-linear-gradient(left, #4d4d4d, 0.4, #4d4d4d, 0.5, white, 0.6, #4d4d4d, #4d4d4d);
+    background: -webkit-gradient(linear,left top,right top,color-stop(0, #4d4d4d),color-stop(0.4, #4d4d4d),color-stop(0.5, white),color-stop(0.6, #4d4d4d),color-stop(1, #4d4d4d));
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: slidetounlock 5s infinite;
+    font-size: 20px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    padding: 0;
+    width: 100%;
+    -webkit-text-size-adjust: none;
+    margin: 0;
+    position: relative;
+    height: 100%;
+}
+#silder-page-wrap-2 h2 #right-img{
+    position: absolute;
+    right: 21px;
+    top: 20px;
+    width:32px;
+    height: 32px;
+    z-index: 1;
+}
+#silder-page-wrap-2 h2 #left-img{
+    position: absolute;
+    left: 21px;
+    top: 20px;
+    width:32px;
+    height: 32px;
+    z-index: 1;
+}
+#silder-page-wrap-2 #slider-2 {
+    background: url(../img/slide-2-icon.png) no-repeat;
+    /* background-size: cover; */
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    border-radius: 100%;
+    background-color: white;
+    margin: 4px 6px;
+    background-position: center;
+    background-size: 62px;
+    left: 100px;
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+}
+#silder-page-wrap-2 span{
+    margin-left: -80px;
+    word-spacing: 120px;
+}
+@-webkit-keyframes slidetounlock {
+    0% {
+        background-position: -720px 0;
+    }
+    100%{
+        background-position: 720px 0;
+    }
+}

@@ -1,0 +1,239 @@
+html {
+    color: #222;
+    display: table;
+    font-family: sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (orientation: portrait) {
+    body {
+        /*                background: url("img/1.jpg");
+        */
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        background-color: #000000;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    body {
+        /*                background: url("img/1h.jpg");
+        */
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        background-color: #000000;
+    }
+}
+
+#buttons {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    width: 100%;
+    height: 4em;
+    bottom: 4em;
+    text-align: center
+}
+
+.side{
+    display: inline-block;
+}
+.col{
+    color: #FFFFFF;
+}
+#acc{
+    color: #FFFFFF;
+}
+#raterm {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    width: 100%;
+    height: 3em;
+    bottom: 0.5em;
+    text-align: center
+}
+
+#terms{
+    background-color: #ADD8E6;
+}
+.connect{
+    color: white;
+    background-color: rgba(223,223,223,0.5);
+    border-style: solid;
+    border: none;
+    border-top: 5px;
+    border-bottom: 5px;
+    font-family: "Helvetica Neue";
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+
+    -webkit-animation: fadeinout 5s linear forwards;
+    animation: fadeinout 5s linear forwards;
+    opacity: 0;
+}
+@-webkit-keyframes fadeinout {
+    50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+    50% { opacity: 1; }
+}
+
+.btn {
+    -moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
+    box-shadow:inset 0px 1px 0px 0px #fff6af;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
+    background:-moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+    background:-webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+    background:-o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+    background:-ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+    background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
+    background-color:#ffec64;
+    -moz-border-radius:9px;
+    -webkit-border-radius:9px;
+    border-radius:9px;
+    display:inline-block;
+    cursor:pointer;
+    color:#333333;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:8px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffee66;
+}
+.btn:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64));
+    background:-moz-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+    background:-webkit-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+    background:-o-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+    background:-ms-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+    background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64',GradientType=0);
+    background-color:#ffab23;
+}
+.btn:active {
+    position:relative;
+    top:1px;
+}
+
+.btn+.disabled {
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf));
+    background:-moz-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-webkit-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-o-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:-ms-linear-gradient(top, #ededed 5%, #dfdfdf 100%);
+    background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
+    background-color:#ededed;
+    -moz-border-radius:9px;
+    -webkit-border-radius:9px;
+    border-radius:9px;
+    display:inline-block;
+    cursor:pointer;
+    color:#777777;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:8px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+}
+.btn+.disabled:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
+    background:-moz-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-webkit-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-o-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:-ms-linear-gradient(top, #dfdfdf 5%, #ededed 100%);
+    background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed',GradientType=0);
+    background-color:#dfdfdf;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+#myBtn {
+    background:hsla(358, 6%, 50%, 0.79);
+    color: #FFFFFF;
+}
+
+.fon{
+    font-size: 1em;
+}
+
+#myBtn {
+    font-size:0.8em;
+    padding:2px 2px;
+    display:inline-block;
+    margin:5px;
+    border-radius:6px;
+    border:solid rgba(0,0,0,0.2);
+    border-width:1px 1px 1px;
+    box-shadow:0 5px 0 rgba(0,0,0,0.1), inset 0 0 3px rgba(255,255,255,0.3);
+    cursor:pointer;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    -webkit-transition: 0.4s ease;
+    transition:0.4s ease; }
+
+#myBtn:hover {
+    -webkit-transform:translateY(-3px);
+    transform:translateY(-3px);
+    box-shadow:0 6px 0 rgba(0,0,0,0.1), inset 0 0 1px rgba(255,255,255,0.4);
+    border-bottom-width:2px; }
+
+#mybtn:active {
+    -webkit-transform:translateY(4px);
+    transform:translateY(4px);
+    box-shadow:0 2px 0 rgba(0,0,0,0.1), inset 0 0 5px rgba(255,255,255,0.4);
+    border-bottom-width:2px;
+    -webkit-transition: 0.1s ease;
+    transition:0.1s ease; }
