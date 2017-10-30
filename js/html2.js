@@ -184,6 +184,27 @@ $(document).ready(function() {
         }
     });   
 
+    $('#slider-2')[0].addEventListener('touchmove', function(event) {
+        event.preventDefault();
+        var el = event.target;
+        var touch = event.touches[0];
+        var curX = touch.pageX;
+        if(!touchStartX) {
+            touchStartX = curX;
+        }
+        else{
+            var diff = curX - touchStartX;
+            var replacement = Number(100 + diff);
+            ($("#slider-2").css('left', replacement+'px'));
+            if (($("#slider-2").css('left')).replace('px','') >= 200) {
+                ($("#slider-2").css('left', 200+'px'));
+            }
+            if (($("#slider-2").css('left')).replace('px','') <= -2) {
+                ($("#slider-2").css('left', 0+'px'));
+            }
+        }
+    }, false);  
+
     $('#slider-2')[0].addEventListener('touchend', function(event) {
         if (($("#slider-2").css('left')).replace('px','') >= 195) {
             rightClick();

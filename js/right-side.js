@@ -1,8 +1,8 @@
 
 var _redirectURLS = [
-    right_side.google,
-    right_side.apple,
-    right_side.yahoo
+    right_side.campaign_link1,
+    right_side.campaign_link2,
+    right_side.campaign_link3
 ];
 
 var user_mac = right_side.user_mac,

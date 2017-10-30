@@ -1,6 +1,4 @@
 var css_back = getCookie("reconnection");
-
-var variables = undefined;
 var n = css_back.toString();
 if ( n == "" ) { n = "1" }
 else if ( n == "1" ) { n = "2" }
