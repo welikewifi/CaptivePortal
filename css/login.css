@@ -8,8 +8,6 @@ html {
 
 @media screen and (orientation: portrait) {
     body {
-        /*                background: url("img/1.jpg");
-        */
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center center;
@@ -19,8 +17,6 @@ html {
 
 @media screen and (orientation: landscape) {
     body {
-        /*                background: url("img/1h.jpg");
-        */
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center center;

@@ -18,13 +18,13 @@ else if (window.matchMedia('all and (orientation:landscape)').matches) {
 }
 
 var xmlhttp = new XMLHttpRequest(),
-    user_mac = "$(mac-esc)",
-    link_origin = "$(link-orig-esc)",
-    link_login_only = "$(link-login-only)";
+    user_mac = login.user_mac,
+    link_origin = login.link_origin,
+    link_login_only = login.link_login_only;
 
-var params = 'username=T-' + user_mac + '&dst=' + link_origin;
+var params = login.params;
 function goto_html2() {
-    window.location = 'html2.html';
+    window.location = login.html2;
 }
 // Get the modal
 var modal = document.getElementById('myModal');

@@ -1,16 +1,15 @@
 
 var _redirectURLS = [
-    'https://www.google.com',
-    'https://www.apple.com',
-    'https://www.yahoo.com'
+    right_side.google,
+    right_side.apple,
+    right_side.yahoo
 ];
 
-var xmlhttp = new XMLHttpRequest(),
-    user_mac = "$(mac-esc)",
-    link_origin = "$(link-orig-esc)",
-    link_login_only = "$(link-login-only)";
+var user_mac = right_side.user_mac,
+    link_origin = right_side.link_origin,
+    link_login_only = right_side.link_login_only;
 
-var params = 'username=T-' + user_mac + '&dst=' + link_origin;
+var params = right_side.params;
 
 var css_back = getCookie("reconnection");
 var n = css_back.toString();
