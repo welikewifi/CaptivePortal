@@ -18,7 +18,7 @@ var xmlhttp = new XMLHttpRequest(),
     link_origin = html2.link_origin,
     link_login_only = html2.link_login_only;
 
-var params = html.params;
+var params = html2.params;
 
 function do_login(el, with_link_origin) {
     if (true == true || el.attr('data-ready') == "true") {
