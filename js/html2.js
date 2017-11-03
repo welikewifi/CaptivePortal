@@ -153,12 +153,11 @@ $(document).ready(function() {
             $(this).animate({
                 left: (100)+'px'
             });
-            console.log(ui.position.left);
             if (ui.position.left >= 195) {
-                rightClick();
+                setTimeout(function(){ rightClick(); }, 3000);
             }
             if (ui.position.left <= 0) {
-                leftClick();
+                setTimeout(function(){ leftClick(); }, 3000);
             }
         }
     });   
