@@ -25,5 +25,5 @@ function redirect(){
 $(document).ready(function() {
     setTimeout(function() {
         redirect();
-    }, 1500);
+    }, 500);
 });
