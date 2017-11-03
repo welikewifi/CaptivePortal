@@ -185,10 +185,11 @@ $(document).ready(function() {
 
     $('#slider-2')[0].addEventListener('touchend', function(event) {
         if (($("#slider-2").css('left')).replace('px','') >= 195) {
-            rightClick();
+            setTimeout(function(){ rightClick(); }, 3000);
+            
         }
         if (($("#slider-2").css('left')).replace('px','') <= 0) {
-            leftClick();
+            setTimeout(function(){ leftClick(); }, 3000);
         }
         $("#slider-2").animate({
             left: (100)+'px'
