@@ -6,7 +6,7 @@ else if ( n == "2" ) { n = "3" }
 else if ( n == "3" ) { n = "1" }
 if (window.matchMedia('all and (orientation:portrait)').matches) {
     $(document).ready(function () {
-        $('body').css('background-image', 'url(img/'+n+'.gif)');
+        $('body').css('background-image', 'url(img/'+n+'.jpg)');
     });
 }
 else if (window.matchMedia('all and (orientation:landscape)').matches) {

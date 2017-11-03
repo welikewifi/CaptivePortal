@@ -1,18 +1,20 @@
 <!--$(if http-header == "Access-Control-Allow-Origin")*$(endif)-->
 <!DOCTYPE html>
 <html>
-
 <head>
+    <title>WeLikeWiFi | OwnCafe</title>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>WeLikeWiFi</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="60">
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/slider.css">    
+    <link rel="stylesheet" href="css/slider.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/external_script.js"></script>
     <script src="js/update.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <!--    GA Code tracks visits overall-->
     <script>
         window.ga = window.ga || function() {
             (ga.q = ga.q || []).push(arguments)
@@ -25,20 +27,18 @@
         ga('set', 'page', '/E48D8C3A048B.html');
         ga('send', 'pageview');
     </script>
+    <!--    End GA Code-->
+    <script async src='js/analytics.js'></script>
+    <script async src='js/autotrack.js'></script>
     <script src="js/cookie.js"></script>
     <!-- Piwik -->
     <script type="text/javascript">
-        var _paq = _paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        var _paq = _paq || []; /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
         _paq.push(['setCustomVariable',
-            // Index, the number from 1 to 5 where this custom variable name is stored
-            1,
-            // Name, the name of the variable, for example: Gender, VisitorType
-            "OUTLET",
-            // Value, for example: "Male", "Female" or "new", "engaged", "customer"
-            "E48D8C9C59FB", //"MACADDRESS"
-            // Scope of the custom variable, "visit" means the custom variable applies to the current visit
-            "visit"
+            1, // Index, the number from 1 to 5 where this custom variable name is stored
+            "OUTLET", // Name, the name of the variable, for example: Gender, VisitorType
+            "Login", // Value, for example: "Male", "Female" or "new", "engaged", "customer"
+            "visit" // Scope of the custom variable, "visit" means the custom variable applies to the current visit
         ]);
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
