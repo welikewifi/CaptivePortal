@@ -20,25 +20,6 @@ var xmlhttp = new XMLHttpRequest(),
 
 var params = html2.params;
 
-function do_login(el, with_link_origin) {
-    if (true == true || el.attr('data-ready') == "true") {
-        $("#well").fadeOut();
-        xmlhttp.open('POST', link_login_only, true);
-        xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=utf-8');
-
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4) {
-                setTimeout( function() {
-                    if (with_link_origin) {
-                        window.location = link_origin;
-                    } else {
-                    }
-                }, 1500);
-            }
-        };
-        xmlhttp.send(params);
-    } }
-
 // Get the modal
 var modal = document.getElementById('myModal');
 
@@ -95,12 +76,10 @@ window.onclick = function(event) {
 };
 
 function leftClick(){
-    do_login($("#slider-2"), false);
     window.location = "left-side.html";
 }
 
 function rightClick(){
-    do_login($("#slider-2"), false);
     window.location = "right-side.html";
 }
 
