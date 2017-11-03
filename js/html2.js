@@ -154,10 +154,10 @@ $(document).ready(function() {
                 left: (100)+'px'
             });
             if (ui.position.left >= 195) {
-                setTimeout(function(){ rightClick(); }, 3000);
+                rightClick();
             }
             if (ui.position.left <= 0) {
-                setTimeout(function(){ leftClick(); }, 3000);
+                leftClick();
             }
         }
     });   
@@ -185,11 +185,10 @@ $(document).ready(function() {
 
     $('#slider-2')[0].addEventListener('touchend', function(event) {
         if (($("#slider-2").css('left')).replace('px','') >= 195) {
-            setTimeout(function(){ rightClick(); }, 3000);
-            
+            rightClick();
         }
         if (($("#slider-2").css('left')).replace('px','') <= 0) {
-            setTimeout(function(){ leftClick(); }, 3000);
+            leftClick();
         }
         $("#slider-2").animate({
             left: (100)+'px'

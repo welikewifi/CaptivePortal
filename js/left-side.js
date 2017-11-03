@@ -23,5 +23,7 @@ function redirect(){
 }
 
 $(document).ready(function() {
-    redirect();
+    setTimeout(function() {
+        redirect();
+    }, 3000);
 });
