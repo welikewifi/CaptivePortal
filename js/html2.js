@@ -81,6 +81,7 @@ function leftClick(){
 
 function rightClick(){
     window.location = "right-side.html";
+    onclick = _paq.push(['trackEvent', 'AD', 'click']);
 }
 
 var funcs =[moveArrowsToSides,hideArrows,moveArrowsToOrigin,showArrows];
