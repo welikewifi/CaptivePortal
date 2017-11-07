@@ -31,32 +31,23 @@
     <script async src='js/analytics.js'></script>
     <script async src='js/autotrack.js'></script>
     <script src="js/cookie.js"></script>
-    <!-- Piwik -->
-    <script type="text/javascript">
-        var _paq = _paq || []; /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['setCustomVariable',
-            1, // Index, the number from 1 to 5 where this custom variable name is stored
-            "OUTLET", // Name, the name of the variable, for example: Gender, VisitorType
-            "Login", // Value, for example: "Male", "Female" or "new", "engaged", "customer"
-            "visit" // Scope of the custom variable, "visit" means the custom variable applies to the current visit
-        ]);
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u = "//my.welikewifi.com/piwik/";
-            _paq.push(['setTrackerUrl', u + 'piwik.php']);
-            _paq.push(['setSiteId', '1']);
-            var d = document,
-                g = d.createElement('script'),
-                s = d.getElementsByTagName('script')[0];
-            g.type = 'text/javascript';
-            g.async = true;
-            g.defer = true;
-            g.src = u + 'piwik.js';
-            s.parentNode.insertBefore(g, s);
-        })();
-    </script>
-    <!-- End Piwik Code -->
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setCustomVariable", 1, "SiteID", "291", "visit"]);
+  _paq.push(["setCustomVariable", 2, "MacAddress", "64D154924E3A", "visit"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//my.welikewifi.com/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
 </head>
 
 <body onload="checkCookie()">
