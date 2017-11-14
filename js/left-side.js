@@ -1,4 +1,3 @@
-
 var _redirectURLS = [
     left_side.promo_link1,
     left_side.promo_link2,
@@ -25,5 +24,5 @@ function redirect(){
 $(document).ready(function() {
     setTimeout(function() {
         redirect();
-    }, 500);
+    }, 1000);
 });

@@ -6,11 +6,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="refresh" content="20">
+    <meta http-equiv="refresh" content="600">
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="css/html2.css">
     <link rel="stylesheet" href="css/slider.css">
     <script src="js/update.js"></script>
+    <script src="js/campaing.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <!--    GA Code tracks visits overall-->
@@ -38,13 +39,13 @@
         var _paq = _paq || [];
         /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
         _paq.push(["setCustomVariable", 1, "SiteID", "291", "visit"]);
-        _paq.push(["setCustomVariable", 2, "CampaignID", "30", "click"]);
+        _paq.push(["setCustomVariable", 2, "CampaignID", "30", "click"]); //"$campaignID"
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
         (function() {
             var u = "//my.welikewifi.com/piwik/";
             _paq.push(['setTrackerUrl', u + 'piwik.php']);
-            _paq.push(['setSiteId', '3']);
+            _paq.push(['setSiteId', '2']);
             var d = document,
                 g = d.createElement('script'),
                 s = d.getElementsByTagName('script')[0];
@@ -61,9 +62,9 @@
 
 <body>
 
-    <!--$(if trial == 'yes')-->
     <iframe src="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)" height="0" width="0" frameborder="0"></iframe>
-    <!--    $(endif)-->
+    <img id="animatedLogo" src="img/VerticalGif.gif" alt="welikewifi_animated_logo" >
+    <!--  <img src='https://my.welikewifi.com/piwik/piwik.php?idsite=3&action_name=WeLikeWiFi | Draculapp&url=my.welikewifi.com/right-side.html&rec=1&apiv=1&cookie=1&_cvar={"1":["Site","291"],"2":["CampaignID","30"]}'/>  -->
 
     <script src="js/right-side.js"></script>
 

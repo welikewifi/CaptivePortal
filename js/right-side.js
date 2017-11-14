@@ -1,4 +1,3 @@
-
 var _redirectURLS = [
     right_side.campaign_link1,
     right_side.campaign_link2,
@@ -25,5 +24,5 @@ function redirect(){
 $(document).ready(function() {
     setTimeout(function() {
         redirect();
-    }, 500);
+    }, 1000);
 });
