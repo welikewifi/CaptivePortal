@@ -4,7 +4,7 @@ var left_side = {
     link_origin : "$(link-orig-esc)",
     link_login_only : "$(link-login-only)",
     params : 'username=T-' + this.user_mac + '&dst=' + this.link_origin,
-    promo_link1: 'https://www.apple.com/',
-    promo_link2: 'https://www.draculapp.com/',
-    promo_link3: 'https://www.wired.com/'
+    promo_link1: 'https://www.zomato.com/miami/ceviche-105-downtown-miami',
+    promo_link2: 'https://www.facebook.com/Ceviche105/',
+    promo_link3: 'https://www.instagram.com/ceviche105/'
 };
