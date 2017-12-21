@@ -1,7 +1,7 @@
 //right-side.js variables
 var right_side = {
     user_mac : "$(mac-esc)",
-    campaignID: '{{campaignID}}',
+    campaignID: '{{CampaignID}}',
     link_origin : "$(link-orig-esc)",
     link_login_only : "$(link-login-only)",
     params : 'username=T-' + this.user_mac + '&dst=' + this.link_origin,
