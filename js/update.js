@@ -4,7 +4,8 @@ var login = {
     link_origin : "$(link-orig-esc)",
     link_login_only : "$(link-login-only)",
     params : 'username=T-' + this.user_mac + '&dst=' + this.link_origin,
-    html2 : 'html2.html'
+    html2 : 'html2.html',
+    siteID: '1'
 };
 
 //Html2.js variables

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>WeLikeWiFi | OwnCafe</title>
+    <title>WeLikeWiFi | login</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +13,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/external_script.js"></script>
     <script src="js/update.js"></script>
+    <script src="js/campaign.js"></script>        
     <script src="js/jquery-ui.min.js"></script>
     <!--    GA Code tracks visits overall-->
     <script>
@@ -31,16 +32,15 @@
     <script async src='js/analytics.js'></script>
     <script async src='js/autotrack.js'></script>
     <script src="js/cookie.js"></script>
-<!-- Piwik -->
-<script type="text/javascript">
+    <!-- Piwik -->
+    <script type="text/javascript">
         var _paq = _paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(["setCustomVariable", 1, "Site", "291", "visit"]);
-        _paq.push(["setCustomVariable", 2, "CampaignID", "30", "view"]); //"$campaignID"
+        _paq.push(["setCustomVariable", 1, "Site", "$siteID", "visit"]);
+        _paq.push(["setCustomVariable", 2, "Campaign", "$campaignID", "visit"]);
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
         (function() {
-            var u = "//my.welikewifi.com/piwik/";
+            var u = "//my.welikewifi.com/webroot/piwik/";
             _paq.push(['setTrackerUrl', u + 'piwik.php']);
             _paq.push(['setSiteId', '1']);
             var d = document,
@@ -52,8 +52,9 @@
             g.src = u + 'piwik.js';
             s.parentNode.insertBefore(g, s);
         })();
+
     </script>
-<!-- End Piwik Code -->
+    <!-- End Piwik Code -->
 </head>
 
 <body onload="checkCookie()">

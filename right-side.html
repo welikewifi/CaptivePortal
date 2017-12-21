@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>WeLikeWiFi | Draculapp</title>
+    <title>WeLikeWiFi | right-side</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,43 +29,20 @@
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA-75134804-1', 'auto');
         ga('send', 'pageview');
+
     </script>
     <!--    End GA Code-->
     <script async src='js/analytics.js'></script>
     <script async src='js/autotrack.js'></script>
     <script src="js/cookie.js"></script>
-    <!-- Piwik -->
-    <script type="text/javascript">
-        var _paq = _paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(["setCustomVariable", 1, "SiteID", "291", "visit"]);
-        _paq.push(["setCustomVariable", 2, "CampaignID", "30", "click"]); //"$campaignID"
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u = "//my.welikewifi.com/piwik/";
-            _paq.push(['setTrackerUrl', u + 'piwik.php']);
-            _paq.push(['setSiteId', '2']);
-            var d = document,
-                g = d.createElement('script'),
-                s = d.getElementsByTagName('script')[0];
-            g.type = 'text/javascript';
-            g.async = true;
-            g.defer = true;
-            g.src = u + 'piwik.js';
-            s.parentNode.insertBefore(g, s);
-        })();
-    </script>
-    <!-- End Piwik Code -->
 
 </head>
 
 <body>
 
     <iframe src="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)" height="0" width="0" frameborder="0"></iframe>
-    <img id="animatedLogo" src="img/VerticalGif.gif" alt="welikewifi_animated_logo" >
-    <!--  <img src='https://my.welikewifi.com/piwik/piwik.php?idsite=3&action_name=WeLikeWiFi | Draculapp&url=my.welikewifi.com/right-side.html&rec=1&apiv=1&cookie=1&_cvar={"1":["Site","291"],"2":["CampaignID","30"]}'/>  -->
-
+    <img id="animatedLogo" src="img/VerticalGif.gif" alt="welikewifi_animated_logo">
+    <img src='https://my.welikewifi.com/webroot/piwik/piwik.php?idsite=2&rec=1&action_name=right-side&idgoal=1&revenue=0.2 | welikewifi&url=my.welikewifi.com/right-side.html&rec=1&apiv=1&cookie=1&_cvar={"1":["Site","$siteID"],"2":["Campaign",$campaignID]}'/>  
     <script src="js/right-side.js"></script>
 
 </body>

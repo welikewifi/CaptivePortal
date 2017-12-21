@@ -6,5 +6,6 @@ var right_side = {
     params : 'username=T-' + this.user_mac + '&dst=' + this.link_origin,
     campaign_link1: 'https://uae.souq.com/ae-en/ae-home-tools-decor/c/',
     campaign_link2: 'https://uae.souq.com/ae-en/ae-health-and-beauty/c/',
-    campaign_link3: 'https://uae.souq.com/ae-en/ae-sports-fitness/c'
+    campaign_link3: 'https://uae.souq.com/ae-en/ae-sports-fitness/c',
+    campaignID: '1a'
 };
